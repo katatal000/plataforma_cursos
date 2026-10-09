@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="18" fill="#6048df" />
+  <rect width="64" height="64" rx="18" fill="#626d78" />
   <text
     x="32"
     y="41"
@@ -10,6 +10,6 @@
     letter-spacing="-2"
     text-anchor="middle"
   >
-    PC
+    MS
   </text>
 </svg>

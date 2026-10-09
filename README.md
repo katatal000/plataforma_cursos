@@ -1,4 +1,4 @@
-# Plataforma Cursos
+# MStrampos
 
 Fundação da plataforma de cursos online. Nesta etapa, o projeto contém uma
 landing page responsiva; catálogo, conta de aluno, pagamentos, vídeos e banco de

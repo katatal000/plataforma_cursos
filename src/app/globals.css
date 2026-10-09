@@ -1,13 +1,110 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  background: #ffffff;
+  color-scheme: dark;
+  background: #0b0c0e;
   font-family:
     Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
+  --theme-canvas: #0b0c0e;
+  --theme-surface: #15171a;
+  --theme-surface-muted: #1a1c20;
+  --theme-surface-raised: #22252a;
+  --theme-foreground: #f3f4f5;
+  --theme-secondary: #c2c6cb;
+  --theme-muted: #a4a9af;
+  --theme-faint: #92989f;
+  --theme-border: #383c42;
+  --theme-border-soft: #2d3136;
+  --theme-accent: #d1d5da;
+  --theme-accent-hover: #ffffff;
+  --theme-accent-button: #626d78;
+  --theme-accent-button-hover: #75808a;
+  --theme-accent-soft: #292d32;
+  --theme-accent-soft-foreground: #e0e3e6;
+  --theme-success: #c1c7c3;
+  --theme-success-soft: #272c29;
+  --theme-warning: #c7c3bb;
+  --theme-warning-soft: #2c2b28;
+  --theme-neutral-button: #272a2f;
+  --theme-neutral-button-hover: #373b41;
+  --theme-button-secondary-hover: #22252a;
+  --theme-disabled: #92989f;
+  --theme-glow: #22252a;
+  --theme-decoration-orange: #30343a;
+  --theme-decoration-green: #747b83;
+  --theme-contrast: #181a1d;
+  --theme-contrast-accent: #636d77;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  background: #f1f2f3;
+
+  --theme-canvas: #f1f2f3;
+  --theme-surface: #ffffff;
+  --theme-surface-muted: #f1f2f3;
+  --theme-surface-raised: #e6e8ea;
+  --theme-foreground: #202226;
+  --theme-secondary: #4e545c;
+  --theme-muted: #555b62;
+  --theme-faint: #555b62;
+  --theme-border: #d4d7da;
+  --theme-border-soft: #e0e2e4;
+  --theme-accent: #343a40;
+  --theme-accent-hover: #151719;
+  --theme-accent-button: #444b53;
+  --theme-accent-button-hover: #30363c;
+  --theme-accent-soft: #e7e9eb;
+  --theme-accent-soft-foreground: #32373d;
+  --theme-success: #4c5550;
+  --theme-success-soft: #e8ebe9;
+  --theme-warning: #56534d;
+  --theme-warning-soft: #efede9;
+  --theme-neutral-button: #30353b;
+  --theme-neutral-button-hover: #1e2226;
+  --theme-button-secondary-hover: #e8e9eb;
+  --theme-disabled: #555b62;
+  --theme-glow: #e1e3e5;
+  --theme-decoration-orange: #a6abb0;
+  --theme-decoration-green: #8c9298;
+  --theme-contrast: #181a1d;
+  --theme-contrast-accent: #69737e;
+}
+
+@theme inline {
+  --color-canvas: var(--theme-canvas);
+  --color-surface: var(--theme-surface);
+  --color-surface-muted: var(--theme-surface-muted);
+  --color-surface-raised: var(--theme-surface-raised);
+  --color-foreground: var(--theme-foreground);
+  --color-secondary: var(--theme-secondary);
+  --color-muted: var(--theme-muted);
+  --color-faint: var(--theme-faint);
+  --color-border-subtle: var(--theme-border);
+  --color-border-soft: var(--theme-border-soft);
+  --color-accent: var(--theme-accent);
+  --color-accent-hover: var(--theme-accent-hover);
+  --color-accent-button: var(--theme-accent-button);
+  --color-accent-button-hover: var(--theme-accent-button-hover);
+  --color-accent-soft: var(--theme-accent-soft);
+  --color-accent-soft-foreground: var(--theme-accent-soft-foreground);
+  --color-success: var(--theme-success);
+  --color-success-soft: var(--theme-success-soft);
+  --color-warning: var(--theme-warning);
+  --color-warning-soft: var(--theme-warning-soft);
+  --color-neutral-button: var(--theme-neutral-button);
+  --color-neutral-button-hover: var(--theme-neutral-button-hover);
+  --color-button-secondary-hover: var(--theme-button-secondary-hover);
+  --color-disabled: var(--theme-disabled);
+  --color-theme-glow: var(--theme-glow);
+  --color-decoration-orange: var(--theme-decoration-orange);
+  --color-decoration-green: var(--theme-decoration-green);
+  --color-contrast: var(--theme-contrast);
+  --color-contrast-accent: var(--theme-contrast-accent);
 }
 
 html {
@@ -18,7 +115,125 @@ body {
   margin: 0;
 }
 
+.home-character {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 0;
+  width: clamp(15rem, 22vw, 20rem);
+  aspect-ratio: 10 / 9;
+  pointer-events: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(1) contrast(1.04);
+  opacity: 0.23;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 34%,
+    rgb(0 0 0 / 0.86) 52%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 34%,
+    rgb(0 0 0 / 0.86) 52%,
+    transparent 78%
+  );
+}
+
+.home-character-left {
+  left: clamp(-7rem, -5.5vw, -2.5rem);
+  background-image: url("/images/mstrampos-personagem-esquerda.png");
+}
+
+.home-character-right {
+  right: clamp(-7rem, -5.5vw, -2.5rem);
+  background-image: url("/images/mstrampos-personagem-direita.png");
+}
+
+@media (max-width: 1023px) {
+  .home-character {
+    top: 0.5rem;
+    width: clamp(9rem, 23vw, 15rem);
+    opacity: 0.14;
+  }
+
+  .home-character-left {
+    left: -3rem;
+  }
+
+  .home-character-right {
+    right: -3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-character {
+    display: none;
+  }
+}
+
+html.theme-transition,
+html.theme-transition * {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition * {
+    transition-duration: 0ms;
+  }
+}
+
+.course-cover-programming {
+  background: linear-gradient(135deg, #141619, #292d32 55%, #4d545c);
+}
+
+.course-cover-web {
+  background: linear-gradient(135deg, #151719, #2c3136 55%, #545c63);
+}
+
+.course-cover-design {
+  background: linear-gradient(135deg, #171719, #303034 55%, #595a5e);
+}
+
+.course-cover-marketing {
+  background: linear-gradient(135deg, #191918, #333330 55%, #5b5a56);
+}
+
+.course-cover-computing {
+  background: linear-gradient(135deg, #151819, #2b3032 55%, #535b5e);
+}
+
+html[data-theme="light"] .course-cover-programming {
+  background: linear-gradient(135deg, #555b62, #858c93 55%, #b2b6ba);
+}
+
+html[data-theme="light"] .course-cover-web {
+  background: linear-gradient(135deg, #4f595f, #818b91 55%, #aeb4b7);
+}
+
+html[data-theme="light"] .course-cover-design {
+  background: linear-gradient(135deg, #5b585e, #89878c 55%, #b3b2b6);
+}
+
+html[data-theme="light"] .course-cover-marketing {
+  background: linear-gradient(135deg, #5c5a55, #8b8984 55%, #b5b4af);
+}
+
+html[data-theme="light"] .course-cover-computing {
+  background: linear-gradient(135deg, #50595b, #818a8c 55%, #acb3b4);
+}
+
 ::selection {
-  background: #d8d0ff;
-  color: #252944;
+  background: #aeb4ba;
+  color: #0b0c0e;
+}
+
+html[data-theme="light"] ::selection {
+  background: #555b62;
+  color: #ffffff;
 }
